@@ -1,0 +1,11 @@
+cacheSolve <- function(x, ...) {
+    imx <- x$getinverse()
+    if(!is.null(imx)){
+        message("getting cached data")
+        return(imx)
+    }
+    data <- x$get()
+        imx <- solve(data)
+        x$setinverse(imx) # assigns resulting inverse matrix to object x
+	imx
+}
